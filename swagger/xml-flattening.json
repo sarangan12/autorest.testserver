@@ -1,0 +1,154 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "title": "AutoRest Swagger BAT XML Flattening Service",
+    "description": "Test Infrastructure for AutoRest Swagger BAT",
+    "version": "1.0.0"
+  },
+  "host": "localhost",
+  "schemes": [
+    "http"
+  ],
+  "produces": [
+    "application/xml"
+  ],
+  "consumes": [
+    "application/xml"
+  ],
+  "paths": {
+    "/xml-flatten/zoo": {
+      "get": {
+        "operationId": "xml_getZoo",
+        "description": "Get a flattened XML document",
+        "tags": [
+          "XML Operations"
+        ],
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "Indicates success",
+            "schema": {
+              "$ref": "#/definitions/Zoo"
+            }
+          },
+          "default": {
+            "description": "Unexpected error"
+          }
+        }
+      },
+      "put": {
+        "operationId": "xml_putZoo",
+        "description": "Put a flattened XML document",
+        "tags": [
+          "XML Operations"
+        ],
+        "parameters": [
+          {
+            "name": "zoo",
+            "in": "body",
+            "schema": {
+              "$ref": "#/definitions/Zoo"
+            },
+            "required": true
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "Indicates success"
+          },
+          "default": {
+            "description": "Unexpected error"
+          }
+        }
+      }
+    }
+  },
+  "definitions": {
+    "Birdcage": {
+      "type": "object",
+      "properties": {
+        "Parrot": {
+          "type": "string",
+          "x-ms-client-flatten": true,
+          "xml": {
+            "name": "parrot"
+          }
+        }
+      }
+    },
+    "GiraffePen": {
+      "type": "object",
+      "properties": {
+        "giraffes": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "xml": {
+              "name": "giraffe"
+            }
+          },
+          "xml": {
+            "name": "giraffes",
+            "wrapped": true
+          },
+          "x-ms-client-flatten": true
+        }
+      },
+      "xml": {
+        "name": "giraffePen"
+      }
+    },
+    "OctopusTank": {
+      "type": "object",
+      "properties": {
+        "octopi": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "xml": {
+              "name": "octopus"
+            }
+          },
+          "x-ms-client-flatten": true
+        }
+      },
+      "xml": {
+        "name": "octopusTank"
+      }
+    },
+    "Office": {
+      "type": "object",
+      "properties": {
+        "zookeeper": {
+          "type": "string"
+        }
+      },
+      "xml": {
+        "name": "office"
+      }
+    },
+    "Zoo": {
+      "type": "object",
+      "properties": {
+        "birdcage": {
+          "$ref": "#/definitions/Birdcage",
+          "x-ms-client-flatten": true
+        },
+        "giraffePen": {
+          "$ref": "#/definitions/GiraffePen",
+          "x-ms-client-flatten": true
+        },
+        "octopusTank": {
+          "$ref": "#/definitions/OctopusTank",
+          "x-ms-client-flatten": true
+        },
+        "office": {
+          "$ref": "#/definitions/Office"
+        }
+      },
+      "xml": {
+        "name": "zoo"
+      }
+    }
+  }
+}

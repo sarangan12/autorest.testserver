@@ -40,6 +40,7 @@ var extensibleEnums = require('./routes/extensibleEnums.js');
 var errorStatusCodes = require('./routes/errorStatusCodes.js');
 var additionalProperties = require('./routes/additionalProperties.js');
 var xml = require('./routes/xml.js'); // XML serialization
+var xmlFlatten = require('./routes/xml-flatten.js');
 var util = require('util');
 var app = express();
 
@@ -528,6 +529,7 @@ app.use('/extensibleEnums', new extensibleEnums(coverage).router);
 app.use('/errorStatusCodes', new errorStatusCodes(coverage).router);
 app.use('/additionalProperties', new additionalProperties(coverage).router);
 app.use('/xml', new xml().router);
+app.use('/xml-flatten', new xmlFlatten().router);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

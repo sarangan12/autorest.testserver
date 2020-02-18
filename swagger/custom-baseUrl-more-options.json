@@ -54,7 +54,7 @@
           {
             "name": "keyVersion",
             "in": "query",
-            "required": false,
+            "required": true,
             "type": "string",
             "default": "v1",
             "description": "The key version. Default value 'v1'."

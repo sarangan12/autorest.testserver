@@ -1762,6 +1762,34 @@
         }
       ],
       "x-ms-discriminator-value": "Kind1"
+    },
+    "ObjectThatHasConstantObject": {
+      "description": "An object that has another object as a constant property. The value of 'name' in the constant object will always be 'hello'",
+      "properties": {
+        "constantObject": {
+          "description": "This is a constant who is an object",
+          "$ref": "#/definitions/ObjectUsedAsConstant",
+          "enum": [
+            {"name": "hello"}
+          ],
+          "x-ms-enum": {
+            "name": "ConstantObject"
+          }
+        }
+      }
+    },
+    "ObjectUsedAsConstant": {
+      "description": "Object that will be used by 'ObjectThatHasConstantObject' as a constant",
+      "type": "object",
+      "properties": {
+        "name": {
+          "description": "The name of the object.",
+          "type": "string"
+        }
+      },
+      "required": [
+        "name"
+      ]
     }
   },
   "parameters": {

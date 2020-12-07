@@ -18,7 +18,7 @@
   "paths": {
     "/complex/basic/valid": {
       "get": {
-        "operationId": "basic_getValid",
+        "operationId": "basicop_getValid",
         "description": "Get complex type {id: 2, name: 'abc', color: 'YELLOW'}",
         "responses": {
           "200": {
@@ -36,7 +36,7 @@
         }
       },
       "put": {
-        "operationId": "basic_putValid",
+        "operationId": "basicop_putValid",
         "description": "Please put {id: 2, name: 'abc', color: 'Magenta'}",
         "parameters": [
           {
@@ -67,7 +67,7 @@
     },
     "/complex/basic/invalid": {
       "get": {
-        "operationId": "basic_getInvalid",
+        "operationId": "basicop_getInvalid",
         "description": "Get a basic complex type that is invalid for the local strong type",
         "responses": {
           "200": {
@@ -87,7 +87,7 @@
     },
     "/complex/basic/empty": {
       "get": {
-        "operationId": "basic_getEmpty",
+        "operationId": "basicop_getEmpty",
         "description": "Get a basic complex type that is empty",
         "responses": {
           "200": {
@@ -107,7 +107,7 @@
     },
     "/complex/basic/null": {
       "get": {
-        "operationId": "basic_getNull",
+        "operationId": "basicop_getNull",
         "description": "Get a basic complex type whose properties are null",
         "responses": {
           "200": {
@@ -127,7 +127,7 @@
     },
     "/complex/basic/notprovided": {
       "get": {
-        "operationId": "basic_getNotProvided",
+        "operationId": "basicop_getNotProvided",
         "description": "Get a basic complex type while the server doesn't provide a response payload",
         "responses": {
           "200": {
